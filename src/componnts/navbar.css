@@ -1,0 +1,30 @@
+.transition-max-height {
+  transition: max-height 0.3s ease-in-out;
+}
+.max-h-0 {
+  max-height: 0;
+}
+.max-h-screen {
+  max-height: 100vh;
+}
+
+
+
+// Navbar
+.gradient-border {
+    position: relative; /* Required for positioning pseudo-elements */
+    border-width: 2px; /* Adjust border width as needed */
+    border-style: solid; /* Use solid border style */
+    padding: 10px; /* Adjust padding as needed */
+}
+
+.gradient-border::before {
+    content: ''; /* Required for pseudo-elements */
+    position: absolute; /* Position relative to the .gradient-border element */
+    top: -2px; /* Adjust positioning to cover the original border */
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    z-index: -1; /* Ensure the pseudo-element is behind the content */
+    background: linear-gradient(to right, #ff7e5f, #feb47b); /* Gradient definition */
+}
