@@ -1,0 +1,99 @@
+body {
+  background-color: #f0f0f0;
+}
+
+.card {
+  color: white;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+  width: 100%;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.card-content {
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.card-content h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.card-content p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.card-content a {
+  background-color: white;
+  color: #ff7e5f;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.card-content a:hover {
+  background-color:#feb47b;
+  color: white;
+}
+
+/* custom.css */
+
+@keyframes gradient-border-hover {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+.gradient-border {
+    position: relative; /* Required for positioning pseudo-elements */
+    display: inline-block; /* Ensure proper display for links */
+    border: 2px solid transparent; /* Optional: visible fallback border */
+    border-radius: 50%; /* Ensure the element is circular */
+    overflow: hidden; /* Hide the pseudo-element overflow */
+}
+
+.gradient-border::before {
+    content: ''; /* Required for pseudo-elements */
+    position: absolute; /* Position relative to the .gradient-border element */
+    top: -2px; /* Adjust positioning to cover the original border */
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    z-index: -1; /* Ensure the pseudo-element is behind the content */
+    
+    background-size: 200% 200%;
+    border-radius: 50%; /* Make the gradient border circular */
+    transition: transform 0.3s ease; /* Smooth transition for scale */
+    
+}
+
+.gradient-border:hover::before {
+    animation: gradient-border-hover 3s linear infinite;
+    transform: scale(1.1);
+}
+
+
+.gradient-border:hover img {
+    transform: scale(1.1); /* Scale the image on hover */
+}
+
+.gradient-border img {
+    transition: transform 0.3s ease; /* Smooth transition for scale */
+}

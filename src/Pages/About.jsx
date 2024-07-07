@@ -1,32 +1,30 @@
 
 
 import { useEffect } from "react"
-import { useDispatch} from "react-redux"
+import { useDispatch } from "react-redux"
 
-import HeroSection from "@/componnts/HeroSection/heroSection"
-import Footer from "@/componnts/Home/footer"
-import WhyUS from "@/componnts/Home/whyUS"
+import AboutCards from "@/componnts/AboutUs/AboutCards"
+import AboutHero from "@/componnts/AboutUs/Hero_3"
+import Hero_2 from "@/componnts/HeroSection/Hero-2"
 import MainLayout from "@/layout/MainLayout"
 import { setActiveNavItem } from "@/redux/slices/NavbarSlice"
 
-function HomePage(){
-    
+function AboutPage(){
     const dispatch = useDispatch()
     useEffect(()=>{
         dispatch(setActiveNavItem({
-            name:"Home"
+            name:"About"
         }))
     },[dispatch])
-
     
     return (<>
     <MainLayout>
-    <HeroSection/>
-    <WhyUS/>
+        <AboutCards/>
+        <AboutHero/>
+    <Hero_2/>
     
-    <Footer/> 
     </MainLayout>
     </>)
 }
 
-export default HomePage
+export default AboutPage

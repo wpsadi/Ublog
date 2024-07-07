@@ -1,4 +1,7 @@
 export const env = {
-    VITE_API_KEY: import.meta.env.VITE_API_KEY ,
-    VITE_API_URL: import.meta.env.VITE_API_URL
-}
+  domain: import.meta.env.VITE_domain,
+  projectID: import.meta.env.VITE_projectID,
+  OauthSuccess: import.meta.env.VITE_OauthSuccess,
+  OauthFailed: import.meta.env.VITE_OauthFailed,
+  APIEndpoint: import.meta.env.VITE_AppwriteEndpoint,
+};

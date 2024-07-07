@@ -62,10 +62,10 @@ function WhyUS() {
             <div className="ball-motionless mainBgC bg-blue-600 flex items-center text-3xl scale-[3] justify-center text-white ">
               <SiReaddotcv />
             </div>
-            <div className="card w-96 shadow-xl mt-24 ">
-              <div className="card-body mainBgC rounded-xl">
-              <div className="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto  lg:text-left ">
-              <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl ">
+            <div className="card w-[100%]  lg:w-96  shadow-xl mt-24 ">
+              <div className="card-body mainBgC rounded-xl ">
+              <div className="mx-auto max-w-lg text-center lg:mx-0 lg:flex-auto  lg:text-left ">
+              <h2 className="text-3xl font-bold tracking-tight text-white sm:text-3xl ">
                 Boost your productivity.
                 <br />
                 Start using our app today.

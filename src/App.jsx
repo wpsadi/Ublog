@@ -1,14 +1,23 @@
+import { useEffect } from "react"
 import { Toaster } from "react-hot-toast"
+import { useDispatch } from "react-redux"
 import { BrowserRouter } from "react-router-dom"
 
-import { env } from "./helpers/env";
+import { getUserThunk } from "./redux/slices/UserSlice"
 import CustomRouter from "./Router/CustomRouter"
 
-const apiKey = env.VITE_API_KEY;
-const apiUrl = env.VITE_API_URL;
+
 
 function App(){
-    console.log(apiKey,apiUrl)
+    const dispatch = useDispatch()
+
+    useEffect(()=>{
+        (async()=>{
+            await dispatch(getUserThunk())
+        })()
+        
+    },[dispatch])
+
     return (<>
         <BrowserRouter>
             <CustomRouter/>

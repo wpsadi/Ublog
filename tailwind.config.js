@@ -77,7 +77,16 @@ export default {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      invert: {
+        100: '100%',
+      }
     },
   },
-  plugins: [daisyui,flowbite.plugin()],
+  plugins: [daisyui,flowbite.plugin(),  function({ addUtilities }) {
+    addUtilities({
+      '.invert-100': {
+        filter: 'invert(100%)',
+      }
+    });
+  }],
 }

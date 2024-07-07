@@ -1,40 +1,32 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-// eslint-disable-next-line no-unused-vars
-const createUser = createAsyncThunk( "User/create", async (email, password, Name) => {
+import getUser from "@/Appwrite/User/getUser";
 
+
+
+
+
+// eslint-disable-next-line no-unused-vars
+export const getUserThunk = createAsyncThunk( "User/create", async () => {
+  const userData = await getUser();
+  return userData;
 }
 );
 
-// eslint-disable-next-line no-unused-vars
-const SignInUser = createAsyncThunk( "User/create", async (email, password) => {
+// // eslint-disable-next-line no-unused-vars
+// const LogoutUser = createAsyncThunk( "User/logout", async () => {
 
-}
-);
-
-// eslint-disable-next-line no-unused-vars
-const LogoutUser = createAsyncThunk( "User/logout", async () => {
-
-}
-);
-
-// eslint-disable-next-line no-unused-vars
-const VerifyEmail = createAsyncThunk( "User/verifyEmail", async (userId,secret) => {
-
-}
-);
+// }
+// );
 
 
 
 
 const initialState = {
-  name: null,
-  email: null,
-  password: null,
-  isEmailVerified: null,
+  isLoggedIn:null
 };
 
-export const UserSlice = createSlice({
+const UserSlice = createSlice({
   name: "User",
   initialState,
   reducers: {
@@ -64,29 +56,28 @@ export const UserSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(createUser.fulfilled,(state,action)=>{
-        state.name = action.payload.name;
-        state.email = action.payload.email;
-        state.password = "**********";
-        state.isEmailVerified = action.payload.isEmailVerified;
-    });
 
-    builder.addCase(SignInUser.fulfilled,(state,action)=>{
-        state.name = action.payload.name;
-        state.email = action.payload.email;
-        state.password = "**********";
-        state.isEmailVerified = action.payload.isEmailVerified;
+    builder.addCase(getUserThunk.fulfilled,(state,action)=>{
+      return {
+        isLoggedIn:true,
+      ...action.payload
+      }
+    });
+    builder.addCase(getUserThunk.rejected,()=>{
+      return {
+        isLoggedIn:false,
+      }
     });
 
     // eslint-disable-next-line no-unused-vars
-    builder.addCase(LogoutUser.fulfilled,(state,action)=>{
-        // eslint-disable-next-line no-unused-vars
-        state=initialState
-    });
+    // builder.addCase(LogoutUser.fulfilled,(state,action)=>{
+    //     // eslint-disable-next-line no-unused-vars
+    //     state=initialState
+    // });
 
-    builder.addCase(VerifyEmail.fulfilled,(state,action)=>{
-        state.isEmailVerified = action.payload.isEmailVerified;
-    });
+
 
   },
 });
+
+export default UserSlice.reducer;
