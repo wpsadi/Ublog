@@ -53,7 +53,10 @@ function CustomNavbar() {
             </div>
             <div className="hidden sm:ml-6 sm:flex sm:items-center gap-2">
               {user.isLoggedIn ? (
-                <Link to="/dashboard" className="mainBgC text-white px-4 py-2 rounded-md ">
+                <Link
+                  to="/dashboard"
+                  className="mainBgC text-white px-4 py-2 rounded-md "
+                >
                   Dashboard
                 </Link>
               ) : (
@@ -121,15 +124,21 @@ function CustomNavbar() {
           </div>
           <div className="pt-4 pb-3 border-t border-gray-200">
             <div className="px-4 flex flex-col gap-2">
-              <Link
-                to="/signin"
-                className="w-full  text-white px-4 py-2 rounded-md mainBgC "
-              >
-                Sign In
-              </Link>
-              <Link to="/dashboard"  className="mainBgC text-white px-4 py-2 rounded-md mainBgC ">
-                Dashboard
-              </Link>
+              {user.isLoggedIn ? (
+                <Link
+                  to="/dashboard"
+                  className="mainBgC text-white px-4 py-2 rounded-md mainBgC "
+                >
+                  Dashboard
+                </Link>
+              ) : (
+                <Link
+                  to="/signin"
+                  className="w-full  text-white px-4 py-2 rounded-md mainBgC "
+                >
+                  Sign In
+                </Link>
+              )}
             </div>
           </div>
         </div>
